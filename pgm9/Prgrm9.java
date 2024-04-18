@@ -24,9 +24,9 @@ class Prgrm9
 	   System.out.println("Enter the side of square: ");
 	   float n = s.nextFloat();
 	   System.out.println("Enter the two sides of rectangle: ");
-	   float p = s.nextInt();
+	   float p = s.nextFloat();
 	   //System.out.println("Enter the other side of rectangle: ");
-	   float q = s.nextInt();
+	   float q = s.nextFloat();
 	   System.out.println("Enter the length, height and breadth of cuboid: ");
 	   float l = s.nextFloat();
 	   float b = s.nextFloat();

@@ -21,13 +21,16 @@ class Prgrm8
 	  public static void main(String args[])
 	  	{
 	  	   Scanner s=new Scanner(System.in);
-	  	   int i=0,eno,n=3;
+	  	   int i=0,f=0,eno,n;
 	  	   String ename;
 	  	   double salary;
 	  	   //declaring array of product
-	  	   Employee[] emp;
-	  	   emp=new Employee[10];
-	  	   for(;i<n;i++)
+	  	   /*Employee e[]=new Employee();
+	  	   e[i]=new Employee()*/
+	  	   Employee[] emp=new Employee[10];
+	  	   System.out.println("Enter the total number of employees you want to store the details:");
+	  	   n=s.nextInt();
+	  	   for(i=0;i<n;i++)
 	  	   	{
 	  	   	  emp[i]=new Employee();
 	  	   	  System.out.println("Enter the eno of "+(i+1)+"th employee");
@@ -40,11 +43,19 @@ class Prgrm8
 	  	   	  //System.out.println(eno + "\n" + ename + "\n" + salary);
 	  	   	  emp[i].getemp(eno,ename,salary);
 	  	   	}
-	
+	  	   	System.out.println("Enter an Eid to search:");
+                              int r=s.nextInt();
 	  	   for(i=0;i<n;i++)
-	  	   	{
-	  	   	 emp[i].show(); 	
-	  	   	}
-	  	 
+	  	   	{ 
+	  	   	   if(emp[i].eno==r)
+	  	   	    {
+	  	   	       System.out.println("\n----------------------Employee Details are-----------------------:\n");
+	  	   	       emp[i].show(); 
+	  	   	       f=1;
+	  	   	       }	   	     	       
 	  	}
+	  	if(f==0)
+	 System.out.println("Employee does not exist!"); 
 	}
+	
+}	
