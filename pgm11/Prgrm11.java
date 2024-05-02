@@ -1,57 +1,103 @@
+/*Create an interface having prototypes of functions area() and perimeter().
+ Create two class Circle and Rectangle which implements the above interface.
+  Create a menu driven program to find area and perimeter of objects.*/
+
 import java.util.Scanner;
-interface Shape
+interface area_perimeter
+{
+	void area();
+	void peri();
+}
+
+class Circle implements area_perimeter
+{
+	int r;
+	Scanner s=new Scanner(System.in);
+	public void area()
 	{
-	  double area();
-	  double perimeter();
+		System.out.println("Enter the radius");
+		r=s.nextInt();
+		System.out.println("The area of circle = "+3.14*r*r);
 	}
-class Circle implements Shape
+	public void peri()
 	{
-	  double radius;
-	  Circle(double radius)
-	  	{
-	  	  this.radius=radius;
-	  	}
-	 public double area()
-	  	{
-	  	  return 3.14*radius*radius;
-	  	}
-	  public double perimeter()
-	  	{
-	  	 return 2*3.14*radius;
-	  	}
+		System.out.println("Enter the radius");
+		r=s.nextInt();
+		System.out.println("The perimeter of circle = "+2*3.14*r);
 	}
-class Rectangle implements Shape
+}
+
+class Rectangle implements area_perimeter
+{
+	int l;
+	int b;
+	Scanner s=new Scanner(System.in);
+	public void area()
 	{
-	  double length,breadth;
-	  Rectangle (double length,double breadth)
-	  	{
-	  	  this.length=length;
-	  	  this.breadth=breadth;
-	  	}
-	  public double area()
-	  	{
-	  	   return length*breadth;
-	  	}
-	  public double perimeter()
-	  	{
-	  	   return 2*(length+breadth);
-	  	}
-	  	
+		System.out.println("Enter the length");
+		l=s.nextInt();
+		System.out.println("Enter the breadth");
+		b=s.nextInt();
+		System.out.println("The area of rectangle = "+l*b);
 	}
+	public void peri()
+	{
+		System.out.println("Enter the length");
+		l=s.nextInt();
+		System.out.println("Enter the breadth");
+		b=s.nextInt();
+		System.out.println("The perimeter of rectangle = "+2*(l+b));
+	}
+}
+
 class Prgrm11
-	{
-	  public static void main(String args[])
-	  	{
-	  	  Scanner s = new Scanner(System.in);
-	  	  float n,l,b;
-	  	  System.out.println("Enter the radius of circle:");
-	  	  n=s.nextFloat();
-	  	  System.out.println("Enter the length and breadth of rectangle:");
-	  	  l=s.nextFloat();
-	  	  b=s.nextFloat();
-	  	  Circle c=new Circle(n);
-	  	  System.out.println("The Circle with radius "+n+" have area "+c.area()+" and perimeter "+c.perimeter()); 
-	  	  Rectangle r=new Rectangle(l,b);
-	  	  System.out.println("The Rectangle with length "+l+" and breadth "+b+" have area "+r.area()+" and perimeter "+r.perimeter());
-	  	}
+{
+		static int c1,c2;
+		public static void main(String arg[])
+		{
+			Rectangle r=new Rectangle();
+			Circle c=new Circle();
+			Scanner s=new Scanner(System.in);
+			while(true)
+			{
+				System.out.println(" 1.Circle \n 2.Rectangle \n 3.Exit \n Enter your choice");
+				c1=s.nextInt();
+				switch(c1)
+				{
+					case 1:
+						System.out.println(" 1.Area \n 2.Perimeter \n Enter your choice");
+						c2=s.nextInt();
+						switch(c2)
+						{
+							case 1:
+								c.area();
+								break;
+							case 2:
+								c.peri();
+								break;
+							default:
+								System.out.println(" Invalid choice");
+						}
+						break;
+					case 2:
+						System.out.println(" 1.Area \n 2.Perimeter \nEnter your choice");
+						c2=s.nextInt();
+						switch(c2)
+						{
+							case 1:
+								r.area();
+								break;
+							case 2:
+								r.peri();
+								break;
+							default:
+								System.out.println(" Invalid choice");
+						}
+					case 3:
+						return;
+					default:
+						System.out.println(" Invalid choice");
+				}
+			}
 	}
+}
